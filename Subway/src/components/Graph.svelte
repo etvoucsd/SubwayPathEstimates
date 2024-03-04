@@ -8,43 +8,43 @@
   export let index, width, height, projection;
 
  
-  const tweenOptions = {
-    delay: 0,
-    duration: 1000,
-    easing: cubicOut,
-  };
+  // const tweenOptions = {
+  //   delay: 0,
+  //   duration: 1000,
+  //   easing: cubicOut,
+  // };
 
-  const tweenedX = tweened(
-    cities.features.map((city) => projection(city.geometry.coordinates)[0]),
-    tweenOptions
-  );
+  // const tweenedX = tweened(
+  //   cities.features.map((city) => projection(city.geometry.coordinates)[0]),
+  //   tweenOptions
+  // );
 
-  const tweenedY = tweened(
-    cities.features.map((city) => projection(city.geometry.coordinates)[1]),
-    tweenOptions
-  );
+  // const tweenedY = tweened(
+  //   cities.features.map((city) => projection(city.geometry.coordinates)[1]),
+  //   tweenOptions
+  // );
 
-  $: tweenedData = cities.features.map((city, i) => ({
-    x: $tweenedX[i],
-    y: $tweenedY[i],
-    properties: city.properties,
-  }));
+  // $: tweenedData = cities.features.map((city, i) => ({
+  //   x: $tweenedX[i],
+  //   y: $tweenedY[i],
+  //   properties: city.properties,
+  // }));
 
-  $: {
-    if (index === 1) {
-      tweenedX.set(cities.features.map((city) => width / 2));
-      tweenedY.set(cities.features.map((city, i) => height / 2 + i * 20));
-    }
+  // $: {
+  //   if (index === 1) {
+  //     tweenedX.set(cities.features.map((city) => width / 2));
+  //     tweenedY.set(cities.features.map((city, i) => height / 2 + i * 20));
+  //   }
 
-    if (index > 1) {
-      tweenedX.set(
-        cities.features.map((city) => projection(city.geometry.coordinates)[0])
-      );
-      tweenedY.set(
-        cities.features.map((city) => projection(city.geometry.coordinates)[1])
-      );
-    }
-  }
+  //   if (index > 1) {
+  //     tweenedX.set(
+  //       cities.features.map((city) => projection(city.geometry.coordinates)[0])
+  //     );
+  //     tweenedY.set(
+  //       cities.features.map((city) => projection(city.geometry.coordinates)[1])
+  //     );
+  //   }
+  // }
 
   // Define your filter condition
   const filter_troopsAttack1 = (feature) => {
@@ -295,6 +295,6 @@
       width: 100%;
       height: 100vh; /* check problem when setting width */
       position: absolute;
-      outline: red solid 7px;
+      outline: rgb(255, 255, 255) solid 7px;
     }
   </style>
